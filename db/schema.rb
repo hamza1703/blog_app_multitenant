@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_21_080244) do
+ActiveRecord::Schema.define(version: 2022_02_21_105213) do
 
   create_table "articles", force: :cascade do |t|
     t.string "title"
@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 2022_02_21_080244) do
 
   create_table "users", force: :cascade do |t|
     t.string "name"
-    t.integer "comapany_id"
+    t.integer "company_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "email", default: "", null: false
@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(version: 2022_02_21_080244) do
     t.datetime "confirmation_sent_at"
     t.string "unconfirmed_email"
     t.integer "role_id"
-    t.index ["comapany_id"], name: "index_users_on_comapany_id"
+    t.index ["company_id"], name: "index_users_on_company_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

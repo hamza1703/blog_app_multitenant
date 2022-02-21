@@ -11,9 +11,24 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
-    super
+    
+    company = Company.new(company_params)
+    user = company.users.build(user_params)
+    user.role_id = User::ROLES[:Admin]
+
+    puts company_params
+    puts user_params
+    binding.pry
+    company.save
+
+    if(company.save)
+      redirect_to new_user_session_url(subdomain:company.subdomain)
+    end
+
+
   end
 
+  
   # GET /resource/edit
   # def edit
   #   super
@@ -59,4 +74,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
+
+  private
+    def company_params
+      params.require(:user).require(:company_attributes).permit(:name, :subdomain)
+    end
+
+    def user_params
+      params.require(:user).permit(:email, :password, :password_confirmation)
+    end
 end
