@@ -25,6 +25,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
       redirect_to new_user_session_url(subdomain:company.subdomain)
     end
 
+    #create subdomain
+
 
   end
 
