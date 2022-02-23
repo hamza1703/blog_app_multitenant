@@ -1,0 +1,4 @@
+<h1>Im here</h1>
+<% @companies.each do |company| %>
+  <%= link_to "#{company.name}", new_user_session_url(subdomain: "#{company.subdomain}") %>
+<% end %>

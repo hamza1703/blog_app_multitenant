@@ -3,11 +3,11 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
-
+  skip_before_action :authenticate_subdomain , only: :new
   # GET /resource/sign_up
-  # def new
-  #   super
-  # end
+  def new
+    super
+  end
 
   # POST /resource
   def create
@@ -18,14 +18,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
     puts company_params
     puts user_params
-    binding.pry
-    company.save
 
-    if(company.save)
+    if(company.save!)
       redirect_to new_user_session_url(subdomain:company.subdomain)
     end
 
-    #create subdomain
 
 
   end

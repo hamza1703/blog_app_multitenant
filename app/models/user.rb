@@ -7,4 +7,9 @@ class User < ApplicationRecord
   has_many :articles
 
   ROLES = {"Admin":1, "User":2}
+
+
+  def will_save_change_to_email?
+  false
+  end
 end

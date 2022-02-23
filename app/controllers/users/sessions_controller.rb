@@ -5,13 +5,11 @@ class Users::SessionsController < Devise::SessionsController
 
   # GET /resource/sign_in
   def new
-    binding.pry
     super
   end
 
   # POST /resource/sign_in
   def create
-    binding.pry    
     super
   
   end
@@ -28,7 +26,6 @@ class Users::SessionsController < Devise::SessionsController
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
   def after_sign_in_path_for(resource)
-    binding.pry
-    welcome_index_url()
+    welcome_index_url
   end
 end

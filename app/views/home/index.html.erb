@@ -1,0 +1,19 @@
+<h2>Enter Email</h2>
+
+<%= form_tag("/home/get_companies",method: :get) do |form| %>
+  
+  <div class="field">
+    <label>Email</label><br />
+    <input type="email" name="email">
+  </div>
+
+  <div class="actions">
+    <button type="submit">Enter</button>
+  </div>
+<% end %>
+
+
+<%= link_to "sign up", new_user_registration_url() %>
+
+
+

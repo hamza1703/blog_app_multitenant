@@ -1,5 +1,6 @@
 class Company < ApplicationRecord
   not_miltitenant!
+  validates :subdomain, uniqueness: true
 
   has_many :users
   has_many :articles

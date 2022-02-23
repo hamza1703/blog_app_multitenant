@@ -25,7 +25,7 @@ class ApplicationRecord < ActiveRecord::Base
         if child.supports_multitenancy? && ENV['TENANT_OVERRIDE'] != 'true'
 
           child.instance_eval do #opens child class and adds the default scope
-            # default_scope {where(company_id: Company.current_tenant_id)} #comment this line then login will work
+            default_scope {where(company_id: Company.current_tenant_id)}
           end
         end
       end
