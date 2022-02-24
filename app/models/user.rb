@@ -10,6 +10,14 @@ class User < ApplicationRecord
 
 
   def will_save_change_to_email?
-  false
+    false
+  end
+
+  def self.current_user=(current_user)
+    Thread.current[:current_user] = current_user
+  end
+
+  def self.current_user
+    Thread.current[:current_user]
   end
 end

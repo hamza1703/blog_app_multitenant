@@ -5,6 +5,5 @@ class WelcomeController < ApplicationController
   end
     
   def find_user_companies
-    binding.pry
   end
 end

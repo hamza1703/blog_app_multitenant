@@ -4,17 +4,20 @@ class ApplicationController < ActionController::Base
 
 
 
-
   def set_current_tenant
     
     company_object = Company.find_by(subdomain: request.subdomain)
+
     if company_object.present?
       Company.current_tenant_id = company_object.id
+      User.current_user = current_user
+
     end
 
     yield
-    Company.current_tenant_id = nil
     
+    Company.current_tenant_id = nil
+    User.current_user = nil
 
   end
 
