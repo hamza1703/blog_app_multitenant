@@ -1,3 +1,4 @@
+
 class WelcomeController < ApplicationController
   before_action :authenticate_user!, except: :find_user_companies  
   def index
