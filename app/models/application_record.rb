@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ApplicationRecord < ActiveRecord::Base
   self.abstract_class = true
 
@@ -14,18 +16,17 @@ class ApplicationRecord < ActiveRecord::Base
       end
     end
 
-    #this is used to trace the end of the child class
+    # this is used to trace the end of the child class
 
-    trace = TracePoint.new (:end) do |tp|
-
+    trace = TracePoint.new(:end) do |tp|
       if tp.self == child
 
-        trace.disable #when the required child class is found, tracing is disabled
+        trace.disable # when the required child class is found, tracing is disabled
 
         if child.supports_multitenancy? && ENV['TENANT_OVERRIDE'] != 'true'
 
-          child.instance_eval do #opens child class and adds the default scope
-            default_scope {where(company_id: Company.current_tenant_id)}
+          child.instance_eval do # opens child class and adds the default scope
+            default_scope { where(company_id: Company.current_tenant_id) }
           end
         end
       end
@@ -33,4 +34,3 @@ class ApplicationRecord < ActiveRecord::Base
     trace.enable
   end
 end
-

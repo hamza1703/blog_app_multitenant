@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -6,9 +8,8 @@ class User < ApplicationRecord
   belongs_to :company
   has_many :articles
   has_many :comments
-  
-  ROLES = {"Admin":1, "User":2}
 
+  ROLES = { "Admin": 1, "User": 2 }.freeze
 
   def will_save_change_to_email?
     false

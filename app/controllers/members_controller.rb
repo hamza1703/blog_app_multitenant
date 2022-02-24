@@ -1,5 +1,6 @@
-class MembersController < ApplicationController
+# frozen_string_literal: true
 
+class MembersController < ApplicationController
   def index
     authorize! :create, @user
 
@@ -14,7 +15,7 @@ class MembersController < ApplicationController
 
   def new
     authorize! :create, @user
-    
+
     @user = User.new
   end
 

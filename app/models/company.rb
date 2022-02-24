@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Company < ApplicationRecord
   not_miltitenant!
   validates :subdomain, uniqueness: true
@@ -6,8 +8,8 @@ class Company < ApplicationRecord
   has_many :articles
   has_many :comments
 
-  #create tenant_id getter and setter
- 
+  # create tenant_id getter and setter
+
   def self.current_tenant_id=(id)
     Thread.current[:tenant_id] = id
   end

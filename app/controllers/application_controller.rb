@@ -1,11 +1,10 @@
+# frozen_string_literal: true
+
 class ApplicationController < ActionController::Base
-  before_action :authenticate_subdomain , only: :new
+  before_action :authenticate_subdomain, only: :new
   around_action :set_current_tenant
 
-
-
   def set_current_tenant
-    
     company_object = Company.find_by(subdomain: request.subdomain)
 
     if company_object.present?
@@ -15,19 +14,12 @@ class ApplicationController < ActionController::Base
     end
 
     yield
-    
+
     Company.current_tenant_id = nil
     User.current_user = nil
-
   end
 
   def authenticate_subdomain
-
-    if !request.subdomain.present?
-      redirect_to "/home/index"
-     
-    end
-
-  end 
-
+    redirect_to '/home/index' unless request.subdomain.present?
+  end
 end
