@@ -1,14 +1,20 @@
 class MembersController < ApplicationController
 
   def index
+    authorize! :create, @user
+
     @users = User.all
   end
 
   def show
+    authorize! :read, @user
+
     @user = User.find(params[:id])
   end
 
   def new
+    authorize! :create, @user
+    
     @user = User.new
   end
 
@@ -17,6 +23,7 @@ class MembersController < ApplicationController
   end
 
   def create
+    authorize! :create, @user
     @user = User.new(user_params)
     @user.role_id = User::ROLES[:User]
     @user.company_id = User.current_user.company_id
@@ -29,6 +36,8 @@ class MembersController < ApplicationController
   end
 
   def update
+    authorize! :update, @user
+
     @user = User.find(params[:id])
 
     if @user.update(user_params)
@@ -39,16 +48,16 @@ class MembersController < ApplicationController
   end
 
   def destroy
+    authorize! :destroy, @user
     @user = User.find(params[:id])
     @user.destroy
 
     redirect_to members_path
   end
 
-  private #params
-    def user_params
-      params.require(:user).permit(:email, :password, :password_confirmation, :name)
-      
-    end
+  private
 
+  def user_params
+    params.require(:user).permit(:email, :password, :password_confirmation, :name)
+  end
 end

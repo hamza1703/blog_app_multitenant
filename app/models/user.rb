@@ -5,7 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   belongs_to :company
   has_many :articles
-
+  has_many :comments
+  
   ROLES = {"Admin":1, "User":2}
 
 

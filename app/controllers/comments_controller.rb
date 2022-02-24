@@ -1,14 +1,20 @@
 class CommentsController < ApplicationController
-  
+  load_and_authorize_resource
+
   def create
     @article = Article.find(params[:article_id])
-    @comment = @article.comments.create(comment_params)
+    @comment = @article.comments.build(comment_params)
+    @comment.user_id = User.current_user.id
+    @comment.save!
+    binding.pry
     redirect_to article_path(@article)
   end
 
   def destroy
+    
     @article = Article.find(params[:article_id])
     @comment = @article.comments.find(params[:id])
+
     @comment.destroy
     redirect_to article_path(@article)
   end
