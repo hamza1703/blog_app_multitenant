@@ -1,3 +1,4 @@
+<%= render_breadcrumbs %> <br><br>
 
 <p>
   <strong>Title:</strong>
@@ -15,11 +16,10 @@
 <h2>Add a comment:</h2>
 <%= form_with(model: [ @article, @article.comments.build ], local: true) do |form| %>
   <p>
-    <%= form.label :commenter %><br>
-    <%= form.text_field :commenter %>
-  </p>
+    <%= form.hidden_field :commenter, :value => User.current_user.role_id == User::ROLES[:Admin] ? "Admin" : User.current_user.name %>
+    </p>
   <p>
-    <%= form.label :body %><br>
+    <%= form.label :type_your_comment %><br>
     <%= form.text_area :body %>
   </p>
   <p>

@@ -1,3 +1,5 @@
+<%= render_breadcrumbs %> <br><br>
+
 <% if can? :create, @member %><%= link_to 'Add New User', new_member_path %><% end %> 
 <% if can? :read, @member %><%= link_to 'View all users', members_path %><% end %> 
 

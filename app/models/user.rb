@@ -6,8 +6,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   belongs_to :company
-  has_many :articles
-  has_many :comments
+  has_many :articles, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   ROLES = { "Admin": 1, "User": 2 }.freeze
 

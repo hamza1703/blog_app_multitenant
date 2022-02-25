@@ -5,7 +5,7 @@ class Ability
 
   def initialize(user)
     user ||= User.new # guest user (not logged in)
-    if user.role_id == 1
+    if user.role_id == User::ROLES[:Admin]
       can :manage, :all
 
     else

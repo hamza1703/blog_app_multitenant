@@ -23,6 +23,7 @@ gem 'turbolinks', '~> 5'
 gem 'cancancan'
 gem 'jbuilder', '~> 2.7'
 gem 'pry'
+gem "breadcrumbs_on_rails"
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password

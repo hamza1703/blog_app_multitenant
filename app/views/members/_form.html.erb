@@ -1,5 +1,5 @@
 
-<%= form_with model: @user, url: members_url, local: true do |form| %>
+<%= form_with model: @user, url: @user.persisted? ? member_path(@user) : members_url, local: true do |form| %>
   <p>
     <%= form.label :name %><br>
     <%= form.text_field :name %>
@@ -8,7 +8,7 @@
     <%= form.label :email %><br>
     <%= form.email_field :email %>
   </p>
- 
+ <% unless @user.persisted? %>
 <div class="field">
     <%= form.label :password %>
     <% if @minimum_password_length %>
@@ -21,6 +21,7 @@
     <%= form.label :password_confirmation %><br />
     <%= form.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
+  <% end %>
   <p>
     <%= form.submit %>
   </p>

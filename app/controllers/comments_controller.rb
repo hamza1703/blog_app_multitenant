@@ -3,6 +3,7 @@
 class CommentsController < ApplicationController
   load_and_authorize_resource
 
+  # POST /articles/:article_id/comments
   def create
     @article = Article.find(params[:article_id])
     @comment = @article.comments.build(comment_params)
@@ -11,6 +12,7 @@ class CommentsController < ApplicationController
     redirect_to article_path(@article)
   end
 
+  # DELETE /articles/:article_id/comments/:id
   def destroy
     @article = Article.find(params[:article_id])
     @comment = @article.comments.find(params[:id])

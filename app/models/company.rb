@@ -3,10 +3,10 @@
 class Company < ApplicationRecord
   not_miltitenant!
   validates :subdomain, uniqueness: true
-
-  has_many :users
-  has_many :articles
-  has_many :comments
+#dependents
+  has_many :users, dependent: :destroy
+  has_many :articles, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   # create tenant_id getter and setter
 
