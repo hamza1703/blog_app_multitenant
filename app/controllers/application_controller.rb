@@ -8,6 +8,7 @@ class ApplicationController < ActionController::Base
     company_object = Company.find_by(subdomain: request.subdomain)
 
     if company_object.present?
+      Company.current_tenant = company_object
       Company.current_tenant_id = company_object.id
       User.current_user = current_user
 

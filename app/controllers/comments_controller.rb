@@ -2,7 +2,6 @@
 
 class CommentsController < ApplicationController
   load_and_authorize_resource
-
   # POST /articles/:article_id/comments
   def create
     @article = Article.find_by(sequence_num: params[:article_id])

@@ -17,4 +17,12 @@ class Company < ApplicationRecord
   def self.current_tenant_id
     Thread.current[:tenant_id]
   end
+
+  def self.current_tenant=(tenant)
+    Thread.current[:current_tenant] = tenant
+  end
+
+  def self.current_tenant
+    Thread.current[:current_tenant]
+  end
 end

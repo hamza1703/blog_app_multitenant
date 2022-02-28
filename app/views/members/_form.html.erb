@@ -1,4 +1,8 @@
 
+
+<div style="margin-top: 150px;" class="d-flex justify-content-md-center align-items-center ">
+  <div style="border:1px solid black; padding:100px; border-radius: 10px;">
+    
 <%= form_with model: @member, url: @member.persisted? ? member_path(@member) : members_url, local: true do |form| %>
   <p>
     <%= form.label :name %><br>
@@ -27,3 +31,6 @@
   </p>
  
 <% end %>
+    </div>
+  </div>
+</div>

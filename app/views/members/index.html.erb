@@ -1,7 +1,16 @@
-<%= render_breadcrumbs %> <br><br>
 
 <h1>All Users</h1>
-<% @members.each do |user| %>
+
+
+<table class="table table-striped text-center">
+  <thead>
+    <tr>
+      <th>Title</th>
+    <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @members.each do |user| %>
 
 	<tr>
 	  <td><%= user.email %></td>
@@ -12,3 +21,5 @@
 	</tr>
 
 <% end %>
+  </tbody>
+</table>

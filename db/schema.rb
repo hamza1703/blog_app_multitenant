@@ -10,11 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_28_065720) do
+ActiveRecord::Schema.define(version: 2022_02_28_120449) do
 
   create_table "articles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "title"
-    t.string "body"
+    t.text "body"
     t.bigint "company_id", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false

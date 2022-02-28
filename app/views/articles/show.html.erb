@@ -1,5 +1,6 @@
-<%= render_breadcrumbs %> <br><br>
 
+<% if can? :update, @article %><%= link_to 'Edit', edit_article_path(@article) %> | <% end %> 
+<%= link_to 'Back', articles_path %>
 <p>
   <strong>Title:</strong>
   <%= @article.title %>
@@ -10,22 +11,31 @@
   <%= @article.body %>
 </p>
  
-<h2>Comments</h2>
-<%= render @article.comments %>
- 
-<h2>Add a comment:</h2>
+ <hr>
+<h2 class="text-center">Comments</h2>
+
 <%= form_with(model: [ @article, @article.comments.build ], local: true) do |form| %>
-  <p>
-    <%= form.hidden_field :commenter, :value => User.current_user.role_id == User::ROLES[:Admin] ? "Admin" : User.current_user.name %>
-    </p>
-  <p>
-    <%= form.label :type_your_comment %><br>
-    <%= form.text_area :body %>
-  </p>
-  <p>
-    <%= form.submit %>
-  </p>
+    <div class="row d-flex justify-content-center">
+        <div class="col-10">
+            <div class="comment-box ml-2">
+                <h4>Add a comment</h4>
+                <%= form.hidden_field :commenter, :value => User.current_user.role_id == User::ROLES[:Admin] ? "Admin" : User.current_user.name %>
+                
+                <div class="comment-area"> <%= form.text_area :body %></div>
+                <div class="comment-btns mt-2">
+                    <div class="row">
+                       
+                        <div class="col-6">
+                            <div class="pull-right"> <button class="btn btn-success send btn-sm">Comment <i class="fa fa-long-arrow-right ml-1"></i></button> </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 <% end %>
+
+<%= render @comments %>
+
  
-<% if can? :update, @article %><%= link_to 'Edit', edit_article_path(@article) %> | <% end %> 
-<%= link_to 'Back', articles_path %>

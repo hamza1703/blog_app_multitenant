@@ -3,25 +3,30 @@
 class ArticlesController < ApplicationController
   load_and_authorize_resource find_by: :sequence_num
   add_breadcrumb 'index', :welcome_index_url
-  add_breadcrumb 'articles', :articles_url
   # GET /articles
-  def index; end
+  def index
+    @articles = current_user.articles
+  end
 
   # GET /articles/:id
 
   def show
+    @comments = @article.comments
     add_breadcrumb 'show', :article_url
   end
 
   # GET /articles/new
-  def new; end
+  def new
+    add_breadcrumb 'new', :new_article_url
+  end
 
   # GET /articles/:id/edit
   def edit
-    add_breadcrumb 'show', :edit_article_url
     respond_to do |format|
       format.html
     end
+    add_breadcrumb 'edit', :edit_article_url
+
   end
 
   # POST /articles

@@ -5,8 +5,7 @@
 global.$ = global.jQuery = require("jquery");
 import Rails from "@rails/ujs"
 import * as ActiveStorage from "@rails/activestorage"
-
-
+import 'bootstrap'
 require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
