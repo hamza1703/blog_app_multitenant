@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/alisyed/sequenceid.git
+  revision: 4cf0c34e7e5aec156f15de4f37bf9a7d359f1e7f
+  branch: feature/change_activerecord_base_to_applicationrecord_in_sti_parent_class_method
+  specs:
+    sequenceid (0.0.7)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -110,6 +117,7 @@ GEM
     mini_portile2 (2.7.1)
     minitest (5.15.0)
     msgpack (1.4.5)
+    mysql2 (0.5.3)
     nio4r (2.5.8)
     nokogiri (1.13.1)
       mini_portile2 (~> 2.7.0)
@@ -190,7 +198,6 @@ GEM
       actionpack (>= 5.2)
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
-    sqlite3 (1.4.2)
     thor (1.2.1)
     thread_safe (0.3.6)
     tilt (2.0.10)
@@ -234,14 +241,15 @@ DEPENDENCIES
   devise
   jbuilder (~> 2.7)
   listen (~> 3.2)
+  mysql2 (~> 0.5)
   pry
   puma (~> 4.1)
   rails (~> 6.0.4, >= 6.0.4.6)
   sass-rails (>= 6)
   selenium-webdriver
+  sequenceid (= 0.0.7)!
   spring
   spring-watcher-listen (~> 2.0.0)
-  sqlite3 (~> 1.4)
   turbolinks (~> 5)
   tzinfo-data
   web-console (>= 3.3.0)

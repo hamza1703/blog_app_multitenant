@@ -5,7 +5,7 @@ class CommentsController < ApplicationController
 
   # POST /articles/:article_id/comments
   def create
-    @article = Article.find(params[:article_id])
+    @article = Article.find_by(sequence_num: params[:article_id])
     @comment = @article.comments.build(comment_params)
     @comment.user_id = User.current_user.id
     @comment.save!
@@ -14,7 +14,7 @@ class CommentsController < ApplicationController
 
   # DELETE /articles/:article_id/comments/:id
   def destroy
-    @article = Article.find(params[:article_id])
+    @article = Article.find_by(sequence_num: params[:article_id])
     @comment = @article.comments.find(params[:id])
 
     @comment.destroy

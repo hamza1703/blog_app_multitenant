@@ -3,7 +3,7 @@
 class Company < ApplicationRecord
   not_miltitenant!
   validates :subdomain, uniqueness: true
-#dependents
+  #dependents
   has_many :users, dependent: :destroy
   has_many :articles, dependent: :destroy
   has_many :comments, dependent: :destroy

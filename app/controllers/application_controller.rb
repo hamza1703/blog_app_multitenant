@@ -12,7 +12,6 @@ class ApplicationController < ActionController::Base
       User.current_user = current_user
 
     end
-
     yield
 
     Company.current_tenant_id = nil
