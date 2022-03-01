@@ -22,6 +22,13 @@
     <li style="margin-right: 10px;" class="nav-item text-center">
      <% if can? :read, @member %><%= link_to 'View all users', members_path %><% end %>
     </li>
+    <li style="margin-right: 10px;" class="nav-item text-center">
+     <% if can? :read, @member %><%= link_to 'View all users', members_path %><% end %>
+    </li>
+    <li style="margin-right: 10px;" class="nav-item text-center">
+     <%= link_to 'Log Out', destroy_user_session_path, method: :delete %>
+    </li>
+    
    
   </ul>
 
