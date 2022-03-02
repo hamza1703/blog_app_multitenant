@@ -12,10 +12,6 @@ module Users
       company = Company.new(company_params)
       user = company.users.build(user_params)
       user.role_id = User::ROLES[:Admin]
-
-      puts company_params
-      puts user_params
-
       redirect_to new_user_session_url(subdomain: company.subdomain) if company.save!
     end
 

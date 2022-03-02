@@ -258,25 +258,25 @@ DEPENDENCIES
   bootsnap (>= 1.4.2)
   breadcrumbs_on_rails
   byebug
-  cancancan
+  cancancan (~> 3.3.0)
   capybara (>= 2.15)
-  devise
+  devise (~> 4.8.1)
   jbuilder (~> 2.7)
   listen (~> 3.2)
   mysql2 (~> 0.5)
-  pry
+  pry (~> 0.14.1)
   puma (~> 4.1)
   rails (~> 6.0.4, >= 6.0.4.6)
   rspec-rails (~> 5.0.0)
   sass-rails (>= 6)
   selenium-webdriver
   sequenceid (= 0.0.7)!
-  spring
+  spring (~> 2.1.1)
   spring-watcher-listen (~> 2.0.0)
   turbolinks (~> 5)
   tzinfo-data
   web-console (>= 3.3.0)
-  webdrivers
+  webdrivers (~> 5.0.0)
   webpacker (~> 4.0)
   will_paginate (= 3.3.0)
 

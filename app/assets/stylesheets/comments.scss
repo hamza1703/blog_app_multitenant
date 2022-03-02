@@ -1,3 +1,10 @@
+$background-color: #bbb;
+$color-green: #00FF00;
+$color-blue: #0000FF;
+$box-shadow-color: 5px 6px 6px 2px #e9ecef;
+$check-icon-color: #c3bfbf;
+$reply-color: #b7b4b4;
+$green-color: #00FF00;
 .card {
     border: none;
     box-shadow: 5px 6px 6px 2px #e9ecef;
@@ -8,16 +15,16 @@
     height: 4px;
     width: 4px;
     margin-bottom: 2px;
-    background-color: #bbb;
+    background-color: $background-color;
     border-radius: 50%;
-    display: inline-block
+    display: inline-block;
 }
 
 .badge {
     padding: 7px;
     padding-right: 9px;
     padding-left: 16px;
-    box-shadow: 5px 6px 6px 2px #e9ecef
+    box-shadow: $box-shadow-color;
 }
 
 .user-img {
@@ -26,7 +33,7 @@
 
 .check-icon {
     font-size: 17px;
-    color: #c3bfbf;
+    color: $check-icon-color;
     top: 1px;
     position: relative;
     margin-left: 3px
@@ -51,10 +58,10 @@
 }
 
 .reply small {
-    color: #b7b4b4
+    color: $reply-color
 }
 
 .reply small:hover {
-    color: green;
+    color: $green-color;
     cursor: pointer
 }

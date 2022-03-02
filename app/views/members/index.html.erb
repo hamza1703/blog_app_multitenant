@@ -6,21 +6,19 @@
   <thead>
     <tr>
       <th>Title</th>
-    <th>Actions</th>
+      <th>Actions</th>
     </tr>
   </thead>
   <tbody>
     <% @members.each do |user| %>
-
-	<tr>
-	  <td><%= user.email %></td>
-	  <td><%= link_to 'Edit', edit_member_path(user) %></td>
-	  <td><%= link_to 'Destroy', member_path(user),
-	          method: :delete,
-	          data: { confirm: 'Are you sure?' } %></td>
-	</tr>
-
-<% end %>
+      <tr>
+        <td><%= user.email %></td>
+        <td><%= link_to 'Edit', edit_member_path(user) %></td>
+        <td><%= link_to 'Destroy', member_path(user),
+                method: :delete,
+                data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
   </tbody>
 </table>
 <%= will_paginate @members %>

@@ -35,6 +35,6 @@
 
 <% end %>
 
-<%= render @comments %>
+<%= render partial: @comments, locals: {article: @article} %>
 
  
