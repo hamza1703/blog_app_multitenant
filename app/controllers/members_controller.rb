@@ -6,7 +6,9 @@ class MembersController < ApplicationController
   add_breadcrumb 'members', :members_url
 
   # GET /members
-  def index; end
+  def index
+  @members = User.all.paginate(page: params[:page], per_page: PER_PAGE)
+  end
 
   # GET /members/:id
   def show; end
