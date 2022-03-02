@@ -5,8 +5,7 @@ class WelcomeController < ApplicationController
   add_breadcrumb 'index', :welcome_index_url
 
   def index
-    @pagy, @articles = pagy(Company.current_tenant.articles, items: 5)
-    
+    @articles = Company.current_tenant.articles.paginate(page: params[:page], per_page: PER_PAGE)
   end
 
   def find_user_companies; end

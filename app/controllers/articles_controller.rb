@@ -5,7 +5,7 @@ class ArticlesController < ApplicationController
   add_breadcrumb 'index', :welcome_index_url
   # GET /articles
   def index
-    @articles = current_user.articles
+    @articles = current_user.articles.paginate(page: params[:page], per_page: PER_PAGE)
   end
 
   # GET /articles/:id
@@ -35,6 +35,7 @@ class ArticlesController < ApplicationController
     respond_to do |format|
       format.html do
         if @article.save
+
           redirect_to @article
         else
           render 'new'
@@ -46,6 +47,7 @@ class ArticlesController < ApplicationController
   # PATCH /articles/:id
   def update
     if @article.update(article_params)
+
       redirect_to @article
     else
       render 'edit'

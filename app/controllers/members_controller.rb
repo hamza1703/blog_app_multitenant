@@ -27,6 +27,7 @@ class MembersController < ApplicationController
     @member.role_id = User::ROLES[:User]
 
     @member.company_id = User.current_user.company_id
+    binding.pry
 
     if @member.save
       redirect_to welcome_index_url

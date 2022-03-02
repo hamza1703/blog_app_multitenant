@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Company < ApplicationRecord
+
   not_miltitenant!
   validates :subdomain, uniqueness: true
   #dependents

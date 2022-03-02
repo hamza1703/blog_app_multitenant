@@ -16,7 +16,7 @@ gem 'mysql2', '~> 0.5'
 gem 'puma', '~> 4.1'
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
-gem 'pagy', '~> 5.10'
+gem 'will_paginate', '=3.3.0'
 gem 'audited', '~> 4.2', '>= 4.2.1'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
 gem 'webpacker', '~> 4.0'
