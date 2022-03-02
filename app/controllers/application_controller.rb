@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::Base
+  include Pagy::Backend
   before_action :authenticate_subdomain, only: :new
   around_action :set_current_tenant
 

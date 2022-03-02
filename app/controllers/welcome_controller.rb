@@ -5,7 +5,8 @@ class WelcomeController < ApplicationController
   add_breadcrumb 'index', :welcome_index_url
 
   def index
-    @articles = Company.current_tenant.articles
+    @pagy, @articles = pagy(Company.current_tenant.articles, items: 5)
+    
   end
 
   def find_user_companies; end
