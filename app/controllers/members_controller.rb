@@ -45,8 +45,10 @@ class MembersController < ApplicationController
     respond_to do |format|
       format.html do
         if is_successful
-          redirect_to welcome_index_url
+          flash[:notice] = "Member Created"
+          redirect_to members_url
         else
+          flash[:alert] = "Member Could Not Be Created"
           render 'new'
         end
       end
@@ -59,6 +61,8 @@ class MembersController < ApplicationController
     respond_to do |format|
       format.html do
         if is_successful
+          flash[:notice] = "Member Updated"
+
           redirect_to members_url
         else
           render 'edit'

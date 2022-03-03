@@ -1,4 +1,9 @@
-<h1 class="text-center">Listing Articles</h1>
+<% flash.each do |type, msg| %>
+  <div class="alert alert-info">
+    <%= msg %>
+  </div>
+<% end %>
+<h1 class="text-center"><%= t 'listing_articles' %></h1>
 <table class="table table-striped text-center">
   <thead>
     <tr>

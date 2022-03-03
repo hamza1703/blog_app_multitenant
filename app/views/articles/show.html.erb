@@ -1,3 +1,8 @@
+<% flash.each do |type, msg| %>
+  <div class="alert alert-info">
+    <%= msg %>
+  </div>
+<% end %>
 <% if can? :update, @article %><%= link_to 'Edit', edit_article_path(@article) %> | <% end %> 
 <%= link_to 'Back', articles_path %>
 <p>
@@ -11,14 +16,15 @@
 </p>
  
  <hr>
-<h2 class="text-center">Comments</h2>
+<h2 class="text-center"><%= t 'comments' %></h2>
 
 <%= form_with(model: [ @article, Comment ], local: true) do |form| %>
     <div class="row d-flex justify-content-center">
         <div class="col-10">
             <div class="comment-box ml-2">
                 <h4>Add a comment</h4>
-                <%= form.hidden_field :commenter, :value => User.current_user.role_id == User::ROLES[:Admin] ? "Admin" : User.current_user.name %>
+                
+                <%= form.hidden_field :commenter, :value => check_user_role %>
                 
                 <div class="comment-area"> <%= form.text_area :body %></div>
                 <div class="comment-btns mt-2">

@@ -8,6 +8,7 @@ class User < ApplicationRecord
   belongs_to :company
   has_many :articles, dependent: :destroy
   has_many :comments, dependent: :destroy
+  validates :email, presence: true
 
   ROLES = { "Admin": 1, "User": 2 }.freeze
 

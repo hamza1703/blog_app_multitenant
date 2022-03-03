@@ -46,6 +46,7 @@ class ArticlesController < ApplicationController
     respond_to do |format|
       format.html do
         if is_successful
+          flash[:notice] = "Article created"
           redirect_to @article
         else
           render 'new'
@@ -60,8 +61,10 @@ class ArticlesController < ApplicationController
     respond_to do |format|
       format.html do
         if is_successful
+          flash[:notice] = "Article updated"
           redirect_to @article
         else
+          flash[:alert] = "Article Could Not Be Updated"
           render 'edit'
         end
       end
@@ -75,6 +78,7 @@ class ArticlesController < ApplicationController
     respond_to do |format|
       format.html do
         if is_destroyed
+          flash[:notice] = "Article Deleted"
           redirect_to articles_path
         end
       end

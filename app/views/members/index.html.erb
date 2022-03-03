@@ -1,5 +1,9 @@
-
-<h1>All Users</h1>
+<% flash.each do |type, msg| %>
+  <div class="alert alert-info">
+    <%= msg %>
+  </div>
+<% end %>
+<h1><%= t 'all_users' %></h1>
 
 
 <table class="table table-striped text-center">

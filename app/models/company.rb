@@ -7,6 +7,7 @@ class Company < ApplicationRecord
   has_many :users, dependent: :destroy
   has_many :articles, dependent: :destroy
   has_many :comments, dependent: :destroy
+  validates :name, :subdomain, presence: true
 
   def self.current_tenant_id=(id)
     Thread.current[:tenant_id] = id

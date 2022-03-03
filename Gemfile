@@ -8,7 +8,7 @@ ruby '2.7.1'
 gem 'devise', '~> 4.8.1'
 
 gem 'rails', '~> 6.0.4', '>= 6.0.4.6'
-
+gem 'rails-i18n', '~> 7.0.3'
 gem 'mysql2', '~> 0.5'
 gem 'puma', '~> 4.1'
 gem 'sass-rails', '>= 6'
