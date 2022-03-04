@@ -4,7 +4,6 @@
     <title><%= t 'title' %></title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -13,23 +12,24 @@
       <nav class="navbar navbar-expand-md navbar-light bg-faded">
         <ul class="navbar-nav mx-auto">
           <li style="margin-right: 10px;" class="nav-item active text-center">
-          <%= link_to 'My Blog', controller: 'articles',class: "nav-link mr-4"%>
+            <%= link_to 'My Blog', controller: 'articles',class: "nav-link mr-4"%>
           </li>
           <li style="margin-right: 10px;" class="nav-item text-center">
-            <% if can? :create, User.new %><%= link_to 'Add New User', new_member_path %><% end %> 
+            <% if can? :create, User.new %><%= link_to 'Add New User', new_member_path %><% end %>
           </li>
           <li style="margin-right: 10px;" class="nav-item text-center">
-          <% if can? :read, User.new %><%= link_to 'View all users', members_path %><% end %>
+            <% if can? :read, User.new %><%= link_to 'View all users', members_path %><% end %>
           </li>
           <li style="margin-right: 10px;" class="nav-item text-center">
-          <%= link_to 'Log Out', destroy_user_session_path, method: :delete %>
+            <%= link_to 'Log Out', destroy_user_session_path, method: :delete %>
           </li>
         </ul>
       </nav>
       <div style="margin-left:100px"></div>
     <% end %>
     <div class="container align-items-center">
-      <%= render_breadcrumbs %> <br><br>
+      <%= render_breadcrumbs %> <br>
+      <br>
       <%= yield %>
     </div>
   </body>

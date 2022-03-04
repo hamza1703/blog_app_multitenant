@@ -9,9 +9,12 @@ class WelcomeController < ApplicationController
     @articles = Company.current_tenant.articles.paginate(page: params[:page], per_page: PER_PAGE)
     respond_to do |format|
       format.html
-      format.json { render json: { articles: @articles } }
     end
   end
 
-  def find_user_companies; end
+  def find_user_companies
+    respond_to do |format|
+      format.html
+    end
+  end
 end

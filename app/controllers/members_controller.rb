@@ -10,7 +10,6 @@ class MembersController < ApplicationController
     @members = User.all.paginate(page: params[:page], per_page: PER_PAGE)
     respond_to do |format|
       format.html
-      format.json { render json: { members: @members } }
     end
   end
 
@@ -45,10 +44,10 @@ class MembersController < ApplicationController
     respond_to do |format|
       format.html do
         if is_successful
-          flash[:notice] = "Member Created"
+          flash[:notice] = t 'member_created'
           redirect_to members_url
         else
-          flash[:alert] = "Member Could Not Be Created"
+          flash[:alert] = t 'member_not_created'
           render 'new'
         end
       end
@@ -61,10 +60,10 @@ class MembersController < ApplicationController
     respond_to do |format|
       format.html do
         if is_successful
-          flash[:notice] = "Member Updated"
-
+          flash[:notice] = t 'member_updated'
           redirect_to members_url
         else
+          flash[:alert] = t 'member_not_updated'
           render 'edit'
         end
       end
@@ -78,6 +77,10 @@ class MembersController < ApplicationController
     respond_to do |format|
       format.html do
         if is_destroyed
+          flash[:notice] = t 'member_deleted'
+          redirect_to members_path
+        else
+          flash[:alert] = t 'member_not_deleted'
           redirect_to members_path
         end
       end

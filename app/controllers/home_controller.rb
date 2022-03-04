@@ -13,7 +13,6 @@ class HomeController < ApplicationController
     @companies = User.unscoped.select('companies.name, companies.subdomain').where(email: params[:email]).joins(:company)
     respond_to do |format|
       format.html
-      format.json { render json: { companies: @companies } }
     end
   end
 end

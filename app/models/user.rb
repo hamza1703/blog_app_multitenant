@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many :articles, dependent: :destroy
   has_many :comments, dependent: :destroy
   validates :email, presence: true
+  accepts_nested_attributes_for :company
 
   ROLES = { "Admin": 1, "User": 2 }.freeze
 

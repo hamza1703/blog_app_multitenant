@@ -1,4 +1,3 @@
-
 <div style="margin-top: 150px;" class="d-flex justify-content-md-center align-items-center ">
   <div style="border:1px solid black; padding:100px; border-radius: 10px;">
     <h2 class="text-center">Sign up</h2>
@@ -18,7 +17,7 @@
       <div class="field">
         <%= form.label :password %>
         <% if @minimum_password_length %>
-        <em>(<%= @minimum_password_length %> characters minimum)</em>
+          <em>(<%= @minimum_password_length %> characters minimum)</em>
         <% end %><br />
         <%= form.password_field :password, autocomplete: "new-password" %>
       </div>
@@ -31,12 +30,12 @@
         <span id="subdomain"></span>
       </div>
       <div class="text-center">
-      <div >
-        <button class="btn btn-primary btn-sm w-100" type="submit">Sign Up</button>
+        <div >
+          <button class="btn btn-primary btn-sm w-100" type="submit">Sign Up</button>
+        </div>
+      <% end %>
+      <div class="text-center">
+        <%= render "devise/shared/links" %>
       </div>
-    <% end %>
-    <div class="text-center">
-      <%= render "devise/shared/links" %> 
     </div>
   </div>
-</div>

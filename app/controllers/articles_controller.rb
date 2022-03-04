@@ -9,7 +9,6 @@ class ArticlesController < ApplicationController
     @articles = current_user.articles.paginate(page: params[:page], per_page: PER_PAGE)
     respond_to do |format|
       format.html
-      format.json { render json: { article: @articles } }
     end
   end
 
@@ -19,7 +18,6 @@ class ArticlesController < ApplicationController
     @comments = @article.comments
     respond_to do |format|
       format.html
-      format.json { render json: { article: @article, comments: @comments } }
     end
   end
 
@@ -46,7 +44,7 @@ class ArticlesController < ApplicationController
     respond_to do |format|
       format.html do
         if is_successful
-          flash[:notice] = "Article created"
+          flash[:notice] = t 'article_created'
           redirect_to @article
         else
           render 'new'
@@ -61,10 +59,10 @@ class ArticlesController < ApplicationController
     respond_to do |format|
       format.html do
         if is_successful
-          flash[:notice] = "Article updated"
+          flash[:notice] = t 'article_updated'
           redirect_to @article
         else
-          flash[:alert] = "Article Could Not Be Updated"
+          flash[:alert] = t 'article_not_updated'
           render 'edit'
         end
       end
@@ -78,7 +76,10 @@ class ArticlesController < ApplicationController
     respond_to do |format|
       format.html do
         if is_destroyed
-          flash[:notice] = "Article Deleted"
+          flash[:notice] = t 'article_deleted'
+          redirect_to articles_path
+        else
+          flash[:alert] = t 'article_not_deleted'
           redirect_to articles_path
         end
       end
