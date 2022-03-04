@@ -1,33 +1,35 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at https://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  welcome: "Welcome!"
+  title: "BlogAppMultitenant"
+  table_title: "Title"
+  table_title_colon: "Title:"
+  table_text: "Text:"
+  confirm_email_text: "You can confirm your account email through the link below:"
+  password_change_text: "We're contacting you to notify you that your password has been changed."
+  password_change_request: "Someone has requested a link to change your password. You can do this through the link below."
+  account_lock_text: "Your account has been locked due to an excessive number of unsuccessful sign in attempts."
+  unlock_link_text: "Click the link below to unlock your account:"
+  reset_instructions: "Send me reset password instructions"
+  table_action: "Actions"
+  edit_article: "Edit Article"
+  listing_articles: "Listing Articles"
+  new_article: "New Article"
+  comments: "Comments"
+  enter_email: "Enter Email"
+  companies: "Companies"
+  edit_user: "Edit User"
+  all_users: "All Users"
+  new_user: "New User"
+  email_is_being_changed: "We're contacting you to notify you that your email is being changed to "
+  email_has_been_changed: "We're contacting you to notify you that your email has been changed to "
+  article_created: "Article created"
+  article_updated: "Article updated"
+  article_not_updated: "Article Could Not Be Updated"
+  article_deleted: "Article Deleted"
+  member_created: "Member Created"
+  member_updated: "Member Updated"
+  member_not_created: "Member Could Not Be Created"
+  member_not_updated: "Member Could Not Be Updated"
+  member_deleted: "Member Deleted"
+  article_not_deleted: "Article Could Not Be Deleted"
+  member_not_deleted: "Member Could Not Be Deleted"

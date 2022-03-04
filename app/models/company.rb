@@ -1,2 +1,27 @@
+# frozen_string_literal: true
+
 class Company < ApplicationRecord
+
+  not_miltitenant!
+  validates :subdomain, uniqueness: true
+  has_many :users, dependent: :destroy
+  has_many :articles, dependent: :destroy
+  has_many :comments, dependent: :destroy
+  validates :name, :subdomain, presence: true
+
+  def self.current_tenant_id=(id)
+    Thread.current[:tenant_id] = id
+  end
+
+  def self.current_tenant_id
+    Thread.current[:tenant_id]
+  end
+
+  def self.current_tenant=(tenant)
+    Thread.current[:current_tenant] = tenant
+  end
+
+  def self.current_tenant
+    Thread.current[:current_tenant]
+  end
 end

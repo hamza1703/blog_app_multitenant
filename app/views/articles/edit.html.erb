@@ -1,0 +1,8 @@
+<% flash.each do |type, msg| %>
+  <div class="alert alert-info">
+    <%= msg %>
+  </div>
+<% end %>
+<h1 class="text-center"><%= t 'edit_article' %></h1>
+<%= link_to 'Back', articles_path %>
+<%= render partial: 'form', locals: {article: @article} %>

@@ -1,0 +1,45 @@
+<% if member.errors.any? %>
+  <div id="error_explanation">
+    <h2>
+      <%= pluralize(member.errors.count, "error") %> prohibited
+      this member from being saved:
+    </h2>
+    <ul>
+      <% member.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+<div style="margin-top: 150px;" class="d-flex justify-content-md-center align-items-center ">
+  <div style="border:1px solid black; padding:100px; border-radius: 10px;">
+    <%= form_with model: member, url: member.persisted? ? member_path(member) : members_url, local: true do |form| %>
+      <p>
+        <%= form.label :name %><br>
+        <%= form.text_field :name %>
+      </p>
+      <p>
+        <%= form.label :email %><br>
+        <%= form.email_field :email %>
+      </p>
+      <% unless member.persisted? %>
+        <div class="field">
+          <%= form.label :password %>
+          <% if @minimum_password_length %>
+            <em>(<%= @minimum_password_length %> characters minimum)</em>
+          <% end %><br />
+          <%= form.password_field :password, autocomplete: "new-password" %>
+        </div>
+        <br>
+        <div class="field">
+          <%= form.label :password_confirmation %><br />
+          <%= form.password_field :password_confirmation,  autocomplete: "new-password" %>
+        </div>
+      <% end %>
+      <p>
+        <%= form.submit %>
+      </p>
+    <% end %>
+  </div>
+</div>
+</div>
