@@ -1,0 +1,32 @@
+$red-color: #f50202;
+$white-color: #fff;
+$gray-color: #ad9f9f;
+  
+  .card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    padding: 20px;
+    word-wrap: break-word;
+    background-color: $white-color;
+    background-clip: border-box;
+    border-radius: 6px;
+    -moz-box-shadow: 0px 0px 5px 0px $gray-color
+}
+
+.comment-box {
+    padding: 5px
+}
+
+.comment-area textarea {
+    resize: none;
+    border: 1px solid $gray-color
+}
+
+
+.send:hover {
+    color: $white-color;
+    background-color: $red-color;
+    border-color: $red-color
+}

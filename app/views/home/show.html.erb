@@ -1,0 +1,8 @@
+<div style="margin-top: 150px;" class="d-flex justify-content-md-center align-items-center ">
+  <div style="border:1px solid black; padding:100px; border-radius: 10px;" class="text-center">
+    <h1><%= t 'companies' %></h1>
+    <% @companies.each do |company| %>
+      <%= link_to "#{company.name}", new_user_session_url(subdomain: "#{company.subdomain}") %>
+    <% end %>
+  </div>
+</div>

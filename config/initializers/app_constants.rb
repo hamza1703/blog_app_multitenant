@@ -1,0 +1,2 @@
+PER_PAGE = 10
+ADMIN = 'Admin'
